@@ -89,16 +89,21 @@ public class TestDepartamento {
      * @Coordenador nome, cpf
      */
 
+    private String MSG_ERR_NOME_DEPARTAMENTO = "O nome do departamento é obrigatório.";
+    private String MSG_ERR_LOCALIZACAO = "A localização do departamento é obrigatória.";
+    private String MSG_ERR_NOME_COORDENADOR = "O nome do coordenador é obrigatório";
+    private String MSG_ERR_CPF = "O CPF do coordenador é obrigatório.";
+
     @Test
     public void validarNomeDepartamento(){
 
         Departamento departamentoNomeVazio = departamentoCompleto;
         departamentoNomeVazio.setNome("");
-        verificarCampoObrigatorio("O nome do departamento é obrigatório.", departamentoNomeVazio);
+        verificarCampoObrigatorio(MSG_ERR_NOME_DEPARTAMENTO, departamentoNomeVazio);
 
         Departamento departamentoNomeNulo = departamentoCompleto;
         departamentoNomeNulo.setNome(null);
-        verificarCampoObrigatorio("O nome do departamento é obrigatório.", departamentoNomeNulo);
+        verificarCampoObrigatorio(MSG_ERR_NOME_DEPARTAMENTO, departamentoNomeNulo);
     }
 
     @Test
@@ -106,11 +111,11 @@ public class TestDepartamento {
 
         Departamento departamentoLocalizacaoVazia = departamentoCompleto;
         departamentoLocalizacaoVazia.setLocalizacao("");
-        verificarCampoObrigatorio("A localização do departamento é obrigatória.", departamentoLocalizacaoVazia);
+        verificarCampoObrigatorio(MSG_ERR_LOCALIZACAO, departamentoLocalizacaoVazia);
 
         Departamento departamentoLocalizacaoNula = departamentoCompleto;
         departamentoLocalizacaoNula.setLocalizacao(null);
-        verificarCampoObrigatorio("A localização do departamento é obrigatória.", departamentoLocalizacaoNula);
+        verificarCampoObrigatorio(MSG_ERR_LOCALIZACAO, departamentoLocalizacaoNula);
     }
 
     @Test
@@ -121,7 +126,7 @@ public class TestDepartamento {
         Departamento departamentoA = departamentoCompleto;
         departamentoA.setCoordenador(coordenadorNomeVazio);
 
-        verificarCampoObrigatorio("O nome do coordenador é obrigatório", departamentoA);
+        verificarCampoObrigatorio(MSG_ERR_NOME_COORDENADOR, departamentoA);
 
         Coordenador coordenadorNomeNulo = coordenadorCompleto;
         coordenadorNomeNulo.setNome(null);
@@ -129,7 +134,7 @@ public class TestDepartamento {
         Departamento departamentoB = departamentoCompleto;
         departamentoA.setCoordenador(coordenadorNomeNulo);
 
-        verificarCampoObrigatorio("O nome do coordenador é obrigatório", departamentoB);
+        verificarCampoObrigatorio(MSG_ERR_NOME_COORDENADOR, departamentoB);
     }
 
     @Test
@@ -140,7 +145,7 @@ public class TestDepartamento {
         Departamento departamentoA = departamentoCompleto;
         departamentoA.setCoordenador(coordenadorCpfVazio);
 
-        verificarCampoObrigatorio("O CPF do coordenador é obrigatório.", departamentoA);
+        verificarCampoObrigatorio(MSG_ERR_CPF, departamentoA);
 
         Coordenador coordenadorCpfNulo = coordenadorCompleto;
         coordenadorCpfNulo.setCpf(null);
@@ -148,7 +153,7 @@ public class TestDepartamento {
         Departamento departamentoB = departamentoCompleto;
         departamentoA.setCoordenador(coordenadorCpfNulo);
 
-        verificarCampoObrigatorio("O CPF do coordenador é obrigatório.", departamentoB);
+        verificarCampoObrigatorio(MSG_ERR_CPF, departamentoB);
     }
 
     /**
