@@ -21,9 +21,10 @@ public class TestDepartamento {
         Departamento departamento
     ) {
 		try {
-			departamento.dadosDepartamento();
+            departamento.dadosDepartamento();
+            assertEquals("RuntimeException", "pass");
 		} catch (RuntimeException e) {
-			assertEquals(mensagemEsperada, e.getMessage());
+            assertEquals(mensagemEsperada, e.getMessage());
 		}
 	}
 
@@ -132,7 +133,7 @@ public class TestDepartamento {
         coordenadorNomeNulo.setNome(null);
 
         Departamento departamentoB = departamentoCompleto;
-        departamentoA.setCoordenador(coordenadorNomeNulo);
+        departamentoB.setCoordenador(coordenadorNomeNulo);
 
         verificarCampoObrigatorio(MSG_ERR_NOME_COORDENADOR, departamentoB);
     }
@@ -151,7 +152,7 @@ public class TestDepartamento {
         coordenadorCpfNulo.setCpf(null);
 
         Departamento departamentoB = departamentoCompleto;
-        departamentoA.setCoordenador(coordenadorCpfNulo);
+        departamentoB.setCoordenador(coordenadorCpfNulo);
 
         verificarCampoObrigatorio(MSG_ERR_CPF, departamentoB);
     }

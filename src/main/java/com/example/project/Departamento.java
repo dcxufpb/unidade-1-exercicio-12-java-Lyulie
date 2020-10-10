@@ -70,6 +70,9 @@ public class Departamento {
     }
 
     public String dadosDepartamento() {
+        
+        validarCamposObrigatoriosDepartamento();
+
         String _nome = isNullEmpty(this.sigla)? this.nome : this.nome + ", ";
         String _sigla = isNullEmpty(this.sigla)? "" : this.sigla;
         String _localizacao = "Coordenadas: " + this.localizacao;
